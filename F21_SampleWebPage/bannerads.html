@@ -1,0 +1,22 @@
+<html>
+<head>
+<title> Rotate Random Banner Ads </title>
+<script type="text/javascript"› function SelectAd()
+// Assumes: the banners BQ0.gif, BQ1.gif, BQ2.gif, and BQ3.gif are
+//
+stored in ImagesForHTMLandJs
+// Results: displays the next banner ad image in the page
+adNum = Math.floor (4*Math. random () )
+document. getElementById ('adImg ) . src="ImagesForHTMLandJS/ad'+ adNum 1.gif'
+</script>
+</head>
+<body onload="setInterval('SelectAd(5)•,
+1000) ;">
+<div style="text-align: center">
+<img id="adImg" alt="banner ad" src="ImagesForHTMLandS/ado.gif">
+</div>
+<p>
+	Contents of the page
+</p>
+</body>
+</html>

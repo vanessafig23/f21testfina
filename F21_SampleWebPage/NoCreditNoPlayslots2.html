@@ -1,0 +1,72 @@
+
+<!doctype html>
+<!-- NoCreditNoPlayslots.html   Vanessa Figueroa-->
+<!doctype html>
+<!-- NoCreditNoPlaySlots.html Figueroa -->
+<!-- This page simulates a simple slot machine with 4 slots. -->
+<!-- add test for out of credits -->
+<!-- ======================================================= -->
+<html>
+	<head>
+<body> <body style = "background-color:red;color:yellow">
+		<title> Slot Machine  No CreditNoPlay</title>
+		<script type="text/javascript" src="ImagesForHTMLandJS/random.js">
+		</script>
+		<script type="text/javascript">
+			function SpinSlots()
+			// Assumes: slot images are in ImagesForHTMLandJS/
+			// Results: displays 4 random slot images
+			{
+      			var slot1, slot2, slot3,currentCredit;
+      			var creditAllThree;
+			// RandomOnOf was user in lab 12 - randSeqUserInput.html
+			   slot1 = RandomOneOf(['lemon', 'cherry', 'bar', 'donut']);
+			   slot2 = RandomOneOf(['lemon', 'cherry', 'bar', 'donut']);
+			   slot3 = RandomOneOf(['lemon', 'cherry', 'bar', 'donut']);
+			   slot4 = RandomOneOf(['lemon', 'cherry', 'bar', 'donut']);
+
+			   document.getElementById('slot1Img').src = 'ImagesForHTMLandJS/' + slot1 + '.jpg';
+			   document.getElementById('slot2Img').src = 'ImagesForHTMLandJS/' + slot2 + '.jpg';
+			   document.getElementById('slot3Img').src = 'ImagesForHTMLandJS/' + slot3 + '.jpg';
+	  		   document.getElementById('slot4Img').src = 'ImagesForHTMLandJS/' + slot4 + '.jpg';
+
+       			currentCredit= parseFloat(document.getElementById('creditBox').value) - 1;
+       			document.getElementById('creditBox').value =  currentCredit;
+
+				//  plyaer gets a credit of 13 when all four images are the same
+       			if (slot1 == slot2 && slot2 == slot3 && slot3 == slot4)
+				{
+         			creditAllThree = 13
+         			document.getElementById('creditBox').value =
+        			parseFloat(document.getElementById('creditBox').value) + creditAllThree ;
+        			alert('Congratulations - you win!' + creditAllThree );
+       			}
+
+      		}
+   		 </script>
+  </head>
+
+  <body>
+    <div style="text-align:center">
+      <p>
+        <img id="slot1Img" border=1 alt="slot image" src="ImagesForHTMLandJS/cherry.jpg">
+        <img id="slot2Img" border=1 alt="slot image" src="ImagesForHTMLandJS/lemon.jpg">
+        <img id="slot3Img" border=1 alt="slot image" src="ImagesForHTMLandJS/bar.jpg">
+        <img id="slot4Img" border=1 alt="slot image" src="ImagesForHTMLandJS/bar.jpg">
+     </p>
+<!-- add test for out of credits -->
+       <input type="button" value="Click to Spin"
+       onclick= "
+         if (parseFloat(document.getElementById('creditBox').value) >0 ) {
+             SpinSlots();
+          }
+         else {
+           alert('Zero credits remaining. To continue playing, enter more credit !');
+          }
+          ">
+     <p>
+       Credits: <input type="text" id="creditBox" size=6 value=5>
+     </p>
+    </div>
+  </body>
+</html>
