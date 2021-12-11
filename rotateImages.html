@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- swapImages.html                                   Dr. O'C -->
+<!-- Web page that swaps and rotates (Left or Right) three images 
+<!-- at the click of a button. -->
+<!-- ======================================================== -->
+
+<html>
+ <head>
+   <title>Rotate Images on Click of a button</title>
+ </head>
+
+ <body>
+  <div style="text-align:left">
+  <h2>Image Swapper</h2>
+  <p>
+   <img id="Img1" src="ImagesForHTMLandJS/happy.gif" alt = "Happy Face">
+   <img id="Img2" src="ImagesForHTMLandJS/sad.gif" alt = "Sad face">
+   <img id="Img3" src="ImagesForHTMLandJS/surprised.gif" alt = "surprised face">
+
+  </p>
+
+  <input type="button" value="Rotate Right" style= "background-color:darkblue;color:white"
+      onclick="
+              saved=document.getElementById('Img3').src;
+              document.getElementById('Img3').src= 
+                    document.getElementById('Img2').src;
+              document.getElementById('Img2').src=
+                   document.getElementById('Img1').src;
+              document.getElementById('Img1').src=saved;
+             ">
+  <input type="button" value="Rotate Left" style= "background-color:darkred;color:white"
+      onclick="
+              saved=document.getElementById('Img1').src;
+              document.getElementById('Img1').src= 
+                    document.getElementById('Img2').src;
+              document.getElementById('Img2').src=
+                   document.getElementById('Img3').src;
+              document.getElementById('Img3').src=saved;
+             ">
+
+   </div>
+ </body>
+</html>
